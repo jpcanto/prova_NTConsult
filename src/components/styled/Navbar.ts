@@ -1,16 +1,36 @@
 import styled from 'styled-components';
 
-export const Navbar = styled.nav`
+interface NavbarProps {
+    image: string;
+}
+
+export const Navbar = styled.nav<NavbarProps>`
     font-family: sans-serif;
-    font-weight: 600;
 
     align-items: center;
     background: transparent;
     display: flex;
     height: 4vw;
-    justify-content: space-evenly;
+    justify-content: center;
 
     a {
         text-decoration: initial;
+
+        margin: auto 10px;
+    }
+    a, a:visited {
+        color: #fff;
+    }
+    a:hover {
+        color: #686868;
+        transform: scale(1.1);
+        transition: .2s ease-in-out;
+    }
+    a:first-child {
+        background: ${props => `url(${props.image})`} no-repeat center;
+        background-size: contain;
+        width: 8vw;
+        height: 7vh;
+        margin-right: 6vw;
     }
 `;

@@ -7,12 +7,14 @@ import Characters from './views/Characters/Characters';
 import Films from './views/Films/Films';
 import Planets from './views/Planets/Planets';
 
+import starWarsLogo from './assets/img/Star_Wars_logo.png';
+
 const Routes = () => {
 
     return <>
         <Router>
-            <Navbar>
-                <Link to="/">Home</Link>
+            <Navbar image={starWarsLogo}>
+                <Link to="/"></Link>
                 <Link to="/films">Films</Link>
                 <Link to="/characters">Characters</Link>
                 <Link to="/planets">Planets</Link>
