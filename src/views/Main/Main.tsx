@@ -1,7 +1,8 @@
 import React from 'react';
 
+
 const Main: React.FC = () => {
-  return <div> Hello World </div>;
+  return <div> Main </div>;
 }
 
 export default Main;
