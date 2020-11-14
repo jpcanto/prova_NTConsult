@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import URL_API from '../../environment';
 import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
 import default_image from '../../assets/img/thumb/character_default_image-2.jpg';
 import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
-import { IndexInfo, IndexKind } from 'typescript';
+import { IndexKind } from 'typescript';
 
 interface ICharacters {
     birth_year: String,
@@ -54,7 +54,6 @@ const Characters: React.FC = (props: any) => {
         setCharacters(newChars);
     }
 
-    console.log(characters)
     return <>
         <CardWallpapper image={wallpapper}>
             <CardBoxContainer main={false}>
