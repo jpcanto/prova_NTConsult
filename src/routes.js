@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Router, Switch, Link, Route } from 'react-router-dom';
 import { Navbar } from './components/styled/Navbar';
 
@@ -12,9 +12,17 @@ import starWarsLogo from './assets/img/Star_Wars_logo.png';
 
 const Routes = () => {
 
+    const [scroll, setScroll] = useState(window.scrollY);
+
+    useEffect(() => {
+        window.addEventListener("scroll", () => setScroll(window.scrollY));
+    }, []);
+    console.log(scroll > 0 ? true : false)
     return <>
         <Router history={history} forceRefresh={true}>
-            <Navbar image={starWarsLogo}>
+            <Navbar image={starWarsLogo}
+                scrolled={scroll > 0 ? true : false}
+            >
                 <Link to="/"></Link>
                 <Link to="/films">Films</Link>
                 <Link to="/characters">Characters</Link>

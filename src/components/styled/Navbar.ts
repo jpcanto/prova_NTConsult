@@ -1,19 +1,23 @@
 import styled from 'styled-components';
 
 interface NavbarProps {
-    image: string;
+    image: String,
+    scrolled: Boolean
 }
 
 export const Navbar = styled.nav<NavbarProps>`
     font-family: sans-serif;
-
     align-items: center;
-    background: rgba(0, 0, 0, .3);
+    background: ${props => props.scrolled
+        ? '#141414'
+        : '#1c1e2280'
+    };
     display: flex;
     height: 8vh;
     margin-bottom: 7vw;
     padding-left: 2vw;
     position: fixed;
+    transition: .5s ease-in;
     width: -webkit-fill-available;
     z-index: 2;
 
