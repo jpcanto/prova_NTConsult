@@ -12,6 +12,8 @@ export const Navbar = styled.nav<NavbarProps>`
     display: flex;
     height: 4vw;
     justify-content: center;
+    margin-bottom: 7vw;
+    width: -webkit-fill-available;
 
     a {
         text-decoration: initial;
