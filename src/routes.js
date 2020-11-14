@@ -23,10 +23,10 @@ const Routes = () => {
             <Navbar image={starWarsLogo}
                 scrolled={scroll > 0 ? true : false}
             >
-                <Link to="/"></Link>
-                <Link to="/films">Films</Link>
-                <Link to="/characters">Characters</Link>
-                <Link to="/planets">Planets</Link>
+                <Link to="/" className={!scroll > 0 ? 'scrolled' : ''}></Link>
+                <Link to="/films" className={!scroll > 0 ? 'scrolled' : ''}>Films</Link>
+                <Link to="/characters" className={!scroll > 0 ? 'scrolled' : ''}>Characters</Link>
+                <Link to="/planets" className={!scroll > 0 ? 'scrolled' : ''}>Planets</Link>
             </Navbar>
             <Switch>
                 <Route exact path='/' render={() => <Main requestType="main" />} />

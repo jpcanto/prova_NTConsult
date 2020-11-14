@@ -29,10 +29,13 @@ export const Navbar = styled.nav<NavbarProps>`
     a, a:visited {
         color: #fff;
     }
-    a:hover {
+    a:hover:not(.scrolled) {
         color: #686868;
         transform: scale(1.1);
         transition: .2s ease-in-out;
+    }
+    a.scrolled:hover {
+        color: #cecece;
     }
     a:first-child {
         background: ${props => `url(${props.image})`} no-repeat center;
