@@ -5,6 +5,7 @@ import URL_API from '../../environment';
 import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
 import default_image from '../../assets/img/thumb/character_default_image-2.jpg';
 import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
+import { IndexInfo, IndexKind } from 'typescript';
 
 interface ICharacters {
     birth_year: String,
@@ -23,12 +24,11 @@ interface ICharacters {
     starships: [],
     url: String,
     vehicles: [],
+    showDescription: Boolean
 }
 
 const Characters: React.FC = (props: any) => {
     const [characters, setCharacters] = useState<ICharacters[]>([]);
-    const [showDescription, setShowDescription] = useState<Boolean>(false);
-    const [refs, setRefs] = useState<Object>({});
 
     useEffect(() => {
         const url = URL_API.getCharacters;
@@ -43,27 +43,35 @@ const Characters: React.FC = (props: any) => {
         getCharacters();
     }, []);
 
-    function handleHover(ev: React.MouseEvent) {
-        console.log(ev);
-        console.log(showDescription);
-        setShowDescription(!showDescription);
+    function handleHover(ev: React.MouseEvent, index: IndexKind, type: Boolean) {
+        const hasVisibleDescription = [...characters].find(c => c.showDescription);
+        const newChars = [...characters];
+
+        if (hasVisibleDescription)
+            hasVisibleDescription.showDescription = false;
+
+        newChars[index] = { ...newChars[index], showDescription: type };
+        setCharacters(newChars);
     }
 
+    console.log(characters)
     return <>
         <CardWallpapper image={wallpapper}>
             <CardBoxContainer main={false}>
                 {
                     characters.map((character, index) => {
                         return (
-                            <CardBox width="22vw" key={index}
-                                onMouseEnter={() => setShowDescription(true)}
-                                onMouseLeave={() => setShowDescription(false)}>
+                            <CardBox
+                                width="22vw"
+                                key={index}
+                                onMouseEnter={ev => handleHover(ev, index, true)}
+                                onMouseLeave={ev => handleHover(ev, index, false)}>
                                 <Card
                                     width="-webkit-fill-available"
                                     image={default_image}
                                     border="top">
                                 </Card>
-                                {showDescription
+                                {character.showDescription
                                     ?
                                     <CardDescription>
                                         <div className="area-button">
