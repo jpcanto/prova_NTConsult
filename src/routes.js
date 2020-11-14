@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import { Router, Switch, Link, Route } from 'react-router-dom';
 import { Navbar } from './components/styled/Navbar';
 
 import Main from './views/Main/Main';
@@ -21,10 +21,10 @@ const Routes = () => {
                 <Link to="/planets">Planets</Link>
             </Navbar>
             <Switch>
-                <Route exact path='/' render={() => <Main requestType="films" />} />
-                <Route exact path='/films' component={Films} />
-                <Route exact path='/characters' component={Characters} />
-                <Route exact path='/planets' component={Planets} />
+                <Route exact path='/' render={() => <Main requestType="main" />} />
+                <Route exact path='/films' render={() => <Films requestType="films" />} />
+                <Route exact path='/characters' render={() => <Characters requestType="characters" />} />
+                <Route exact path='/planets' render={() => <Planets requestType="planets" />} />
             </Switch>
         </Router>
     </>

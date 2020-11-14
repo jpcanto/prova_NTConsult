@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import URL_API from '../../environment';
-import { CardBox, Card } from '../../components/styled/Card';
+import { Card, CardBoxContainer } from '../../components/styled/Card';
 
 interface IFilms {
   birth_year: String,
@@ -27,7 +27,7 @@ const Films: React.FC = (props: any) => {
   const [films, setFilms] = useState<IFilms[]>([]);
 
   useEffect(() => {
-    const url = URL_API.getCharacters;
+    const url = URL_API.getFilms;
     async function getFilms() {
       try {
         const { data } = await axios.get(url);
@@ -40,13 +40,13 @@ const Films: React.FC = (props: any) => {
   }, []);
   console.log(props.requestType)
   return <>
-    <CardBox>
+    <CardBoxContainer>
       {
         films.map((film, index) =>
           <Card key={index}>{film.name}</Card>
         )
       }
-    </CardBox>
+    </CardBoxContainer>
   </>;
 }
 

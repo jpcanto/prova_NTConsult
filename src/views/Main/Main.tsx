@@ -19,21 +19,45 @@ const Main: React.FC = () => {
     <CardContainer paddingTop="5vh">
       <CardTitle fontSize="4.2">Who's watching?</CardTitle>
       <CardBoxContainer>
-        <CardBox onClick={handleClick}>
-          <Card bgColor="#f5f781" image={luke}></Card>
-          <div className="description">Luke Skywalker</div>
+        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+          <Card
+            border="full"
+            width="12vw"
+            bShadow={true}
+            bgColor="#f5f781"
+            image={luke}>
+          </Card>
+          <div className="title">Luke Skywalker</div>
         </CardBox>
-        <CardBox onClick={handleClick}>
-          <Card bgColor="#71280d" image={anakin}></Card>
-          <div className="description">Anakin Skywalker</div>
+        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+          <Card
+            border="full"
+            width="12vw"
+            bShadow={true}
+            bgColor="#71280d"
+            image={anakin}>
+          </Card>
+          <div className="title">Anakin Skywalker</div>
         </CardBox>
-        <CardBox onClick={handleClick}>
-          <Card bgColor="#232aff" image={leia}></Card>
-          <div className="description">Leia Organa</div>
+        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+          <Card
+            border="full"
+            width="12vw"
+            bShadow={true}
+            bgColor="#232aff"
+            image={leia}>
+          </Card>
+          <div className="title">Leia Organa</div>
         </CardBox>
-        <CardBox onClick={handleClick}>
-          <Card bgColor="#53c76c" image={obiwan}></Card>
-          <div className="description">Obiwan Kenobi</div>
+        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+          <Card
+            border="full"
+            width="12vw"
+            bShadow={true}
+            bgColor="#53c76c"
+            image={obiwan}>
+          </Card>
+          <div className="title">Obiwan Kenobi</div>
         </CardBox>
       </CardBoxContainer>
     </CardContainer>
