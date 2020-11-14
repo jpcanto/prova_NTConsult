@@ -126,7 +126,7 @@ export const CardDescription = styled.div<cardProps>`
             display: flex;
             height: 30px;
             justify-content: center;
-            width: 30px;
+            width: 33px;
 
             :last-child {
                 margin-left: auto;
