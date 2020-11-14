@@ -3,7 +3,8 @@ import styled from 'styled-components';
 interface cardProps {
     image?: string,
     fontSize?: string,
-    paddingTop?: string
+    paddingTop?: string,
+    bgColor?: string
 }
 
 export const CardContainer = styled.div<cardProps>`
@@ -17,6 +18,7 @@ export const CardBoxContainer = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
+    width: -webkit-fill-available;
 `;
 
 export const CardTitle = styled.h1<cardProps>`
@@ -24,24 +26,25 @@ export const CardTitle = styled.h1<cardProps>`
     font-family: Arial, Helvetica, sans-serif;
     font-size: ${props => `${props.fontSize}em`};
 
-    margin-bottom: 8vh;
+    margin-bottom: 5vh;
 `;
 
 export const CardBox = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    width: 20vw;
+    margin: auto 1vw;
+    width: 12vw;
 `;
 
 export const Card = styled.div<cardProps>`
-    background: ${props => `url(${props.image})`} no-repeat center;
+    background: ${props => `${props.bgColor} url(${props.image})`} no-repeat center;
     background-size: contain;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
-    height: 30vh;
-    margin: auto 15px;
-    width: 20vw;
+    height: 22vh;
+    width: 12vw;
 
     &:hover {
         border-radius: 5px;

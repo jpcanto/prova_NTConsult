@@ -10,9 +10,9 @@ export const Navbar = styled.nav<NavbarProps>`
     align-items: center;
     background: transparent;
     display: flex;
-    height: 4vw;
-    justify-content: center;
     margin-bottom: 7vw;
+    margin-left: 5vw;
+    padding-top: 10px;
     width: -webkit-fill-available;
 
     a {
@@ -31,8 +31,8 @@ export const Navbar = styled.nav<NavbarProps>`
     a:first-child {
         background: ${props => `url(${props.image})`} no-repeat center;
         background-size: contain;
-        width: 8vw;
-        height: 7vh;
-        margin-right: 6vw;
+        width: 6vw;
+        height: 4vh;
+        margin-right: 3vw;
     }
 `;
