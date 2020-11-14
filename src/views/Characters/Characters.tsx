@@ -4,6 +4,9 @@ import axios from 'axios';
 import URL_API from '../../environment';
 import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
 import default_image from '../../assets/img/thumb/character_default_image-2.jpg';
+import likeIcon from '../../assets/img/thumb/like.png';
+import unlikeIcon from '../../assets/img/thumb/unlike.png';
+import infoIcon from '../../assets/img/thumb/info.png';
 import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
 import { IndexKind } from 'typescript';
 
@@ -74,9 +77,15 @@ const Characters: React.FC = (props: any) => {
                                     ?
                                     <CardDescription>
                                         <div className="area-button">
-                                            <img src="" className="button" />
-                                            <img src="" className="button" />
-                                            <img src="" className="button" />
+                                            <div className="button">
+                                                <img src={likeIcon} />
+                                            </div>
+                                            <div className="button">
+                                                <img src={unlikeIcon} />
+                                            </div>
+                                            <div className="button">
+                                                <img src={infoIcon} />
+                                            </div>
                                         </div>
                                         <div className="area-info">
                                             <div className="info">{`Starships: ${character.starships.length}`}</div>

@@ -87,7 +87,7 @@ export const Card = styled.div<cardProps>`
     }
 `;
 
-export const CardDescription = styled.div`
+export const CardDescription = styled.div<cardProps>`
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: .7em;
@@ -102,7 +102,7 @@ export const CardDescription = styled.div`
     padding: 10px;
     width: -webkit-fill-available;
 
-    .area-buttons, .area-info, .area-tags{
+    .area-button, .area-info, .area-tags{
         align-items: center;
         display: flex;
 
@@ -112,6 +112,29 @@ export const CardDescription = styled.div`
 
         .button, .info, .tag {
             margin: 5px 10px;
+        }
+    }
+
+    .area-button {
+        justify-content: flex-start;
+
+        .button {
+            align-items: center;
+            border-radius: 15px;
+            box-shadow: 0px 0px 3px 1px #ccc6;
+            cursor: pointer;
+            display: flex;
+            height: 30px;
+            justify-content: center;
+            width: 30px;
+
+            :last-child {
+                margin-left: auto;
+            }
+            img {
+                height: 10px;
+                width: 10px;
+            }
         }
     }
 
