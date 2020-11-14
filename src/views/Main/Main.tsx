@@ -16,9 +16,9 @@ const Main: React.FC = () => {
   }
 
   return <>
-    <CardContainer paddingTop="5vh">
+    <CardContainer paddingTop="20vh">
       <CardTitle fontSize="4.2">Who's watching?</CardTitle>
-      <CardBoxContainer>
+      <CardBoxContainer main={true}>
         <CardBox width="12vw" bShadow={true} onClick={handleClick}>
           <Card
             border="full"

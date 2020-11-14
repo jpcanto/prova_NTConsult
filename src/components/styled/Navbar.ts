@@ -8,12 +8,14 @@ export const Navbar = styled.nav<NavbarProps>`
     font-family: sans-serif;
 
     align-items: center;
-    background: transparent;
+    background: rgba(0, 0, 0, .3);
     display: flex;
+    height: 8vh;
     margin-bottom: 7vw;
-    margin-left: 5vw;
-    padding-top: 10px;
+    padding-left: 2vw;
+    position: fixed;
     width: -webkit-fill-available;
+    z-index: 2;
 
     a {
         text-decoration: initial;

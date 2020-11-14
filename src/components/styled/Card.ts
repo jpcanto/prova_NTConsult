@@ -8,7 +8,19 @@ interface cardProps {
     width?: string,
     bShadow?: boolean,
     border?: string,
+    main?: boolean
 }
+
+export const CardWallpapper = styled.div<cardProps>`
+    overflow: visible;
+    background: ${props => `url(${props.image})`} no-repeat center;
+    background-size: cover;
+    box-shadow: inset 0px -42px 36px -8px #1b1b1b, 0 42px 36px 8px #1b1b1b;
+    height: 55vh;
+    position: absolute;
+    top: 0;
+    width: -webkit-fill-available;
+`;
 
 export const CardContainer = styled.div<cardProps>`
     align-items: center;
@@ -17,11 +29,12 @@ export const CardContainer = styled.div<cardProps>`
     padding-top: ${props => props.paddingTop};
 `;
 
-export const CardBoxContainer = styled.div`
+export const CardBoxContainer = styled.div<cardProps>`
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: ${props => !props.main ? '45vh' : 0};
     width: -webkit-fill-available;
 `;
 

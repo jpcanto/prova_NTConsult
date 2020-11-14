@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 
 import URL_API from '../../environment';
-import { Card, CardBox, CardBoxContainer, CardContainer, CardDescription } from '../../components/styled/Card';
+import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
 import default_image from '../../assets/img/thumb/character_default_image-2.jpg';
+import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
 
 interface ICharacters {
     birth_year: String,
@@ -49,43 +50,45 @@ const Characters: React.FC = (props: any) => {
     }
 
     return <>
-        <CardBoxContainer>
-            {
-                characters.map((character, index) => {
-                    return (
-                        <CardBox width="22vw" key={index}
-                            onMouseEnter={() => setShowDescription(true)}
-                            onMouseLeave={() => setShowDescription(false)}>
-                            <Card
-                                width="-webkit-fill-available"
-                                image={default_image}
-                                border="top">
-                            </Card>
-                            {showDescription
-                                ?
-                                <CardDescription>
-                                    <div className="area-button">
-                                        <img src="" className="button" />
-                                        <img src="" className="button" />
-                                        <img src="" className="button" />
-                                    </div>
-                                    <div className="area-info">
-                                        <div className="info">{`Starships: ${character.starships.length}`}</div>
-                                        <div className="info">Films: <span>{character.films.length}</span></div>
-                                    </div>
-                                    <div className="area-tags">
-                                        <div className="tag">{character.name}</div>
-                                        <div className="tag">{character.gender}</div>
-                                        <div className="tag">{character.created}</div>
-                                    </div>
-                                </CardDescription>
-                                : ''
-                            }
-                        </CardBox>
-                    )
-                })
-            }
-        </CardBoxContainer>
+        <CardWallpapper image={wallpapper}>
+            <CardBoxContainer main={false}>
+                {
+                    characters.map((character, index) => {
+                        return (
+                            <CardBox width="22vw" key={index}
+                                onMouseEnter={() => setShowDescription(true)}
+                                onMouseLeave={() => setShowDescription(false)}>
+                                <Card
+                                    width="-webkit-fill-available"
+                                    image={default_image}
+                                    border="top">
+                                </Card>
+                                {showDescription
+                                    ?
+                                    <CardDescription>
+                                        <div className="area-button">
+                                            <img src="" className="button" />
+                                            <img src="" className="button" />
+                                            <img src="" className="button" />
+                                        </div>
+                                        <div className="area-info">
+                                            <div className="info">{`Starships: ${character.starships.length}`}</div>
+                                            <div className="info">Films: <span>{character.films.length}</span></div>
+                                        </div>
+                                        <div className="area-tags">
+                                            <div className="tag">{character.name}</div>
+                                            <div className="tag">{character.gender}</div>
+                                            <div className="tag">{character.created}</div>
+                                        </div>
+                                    </CardDescription>
+                                    : ''
+                                }
+                            </CardBox>
+                        )
+                    })
+                }
+            </CardBoxContainer>
+        </CardWallpapper>
     </>;
 }
 
