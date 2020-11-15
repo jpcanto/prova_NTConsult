@@ -4,7 +4,9 @@ import { ModalContainer, ModalDescription, ModalFade, ModalWalppaper } from './M
 import { IModal } from './Modal.interface';
 import { useHistory } from 'react-router-dom';
 
-const Modal: React.FC<IModal> = ({ show, image, name, gender, created, films, starships }) => {
+const Modal: React.FC<IModal> = (
+    { type, show, image, name, gender, created, films, starships, episode_id, release_date, title, opening_crawl }
+) => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -12,8 +14,8 @@ const Modal: React.FC<IModal> = ({ show, image, name, gender, created, films, st
 
     const history = useHistory();
 
-    function handleClick(type: string) {
-        history.push(`/${type}`);
+    function handleClick(path: string) {
+        history.push(`/${path}`);
     }
 
     return <>
@@ -24,19 +26,29 @@ const Modal: React.FC<IModal> = ({ show, image, name, gender, created, films, st
                         <ModalWalppaper image={image} />
                         <ModalDescription>
                             <div className="flex">
-                                <p>{created}</p>
-                                <p className="films">Films: <span>{films}</span></p>
+                                <p>{type === 'characters' ? created : release_date}</p>
+                                {type === 'characters'
+                                    ? <p>Films: <span>{films}</span></p>
+                                    : <p><span>{title}</span></p>
+                                }
                             </div>
-                            <p>Name: {name}</p>
-                            <p>Gender: {gender}</p>
-                            <p className="star-ships">Starships: {starships}</p>
+                            {type === 'characters'
+                                ? <>
+                                    <p>Name: {name}</p>
+                                    <p>Gender: {gender}</p>
+                                    <p className="star-ships">Starships: {starships}</p>
+                                </>
+                                : <>
+                                    <p className="star-ships">Episode: {episode_id}</p>
+                                    <div className="description">
+                                        {opening_crawl}
+                                    </div>
+                                </>
+                            }
+
                             <div className="flex">
-                                <p>To see more about planets:</p>
-                                <p className="link" onClick={() => handleClick('planets')}>Clique here</p>
-                            </div>
-                            <div className="flex">
-                                <p>To see more about films:</p>
-                                <p className="link" onClick={() => handleClick('films')}>Clique here</p>
+                                <p>To see more about {type === 'characters' ? 'films' : 'characters'}:</p>
+                                <p className="link" onClick={() => handleClick(type === 'characters' ? 'films' : 'characters')}>Click here</p>
                             </div>
                         </ModalDescription>
                     </ModalContainer>

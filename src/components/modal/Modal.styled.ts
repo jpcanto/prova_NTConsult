@@ -43,7 +43,8 @@ export const ModalDescription = styled.div<IModalStyled>`
 
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    overflow-y: auto;
+    padding: 10px 20px;
     width: 100%;
 
     p {
@@ -63,6 +64,12 @@ export const ModalDescription = styled.div<IModalStyled>`
 
     .flex:not(:first-child) {
         margin-bottom: 5px;
+    }
+
+    .description {
+        line-height: 1.40;
+        margin-bottom: 30px;
+        width: 90%;
     }
 
     .flex {

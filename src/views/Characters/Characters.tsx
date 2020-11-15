@@ -49,7 +49,6 @@ const Characters: React.FC = (props: any) => {
         setModal(target.matches('.button') || target.matches('img') ? true : false);
     }
 
-    console.log(characters)
     return <>
         <CardWallpapper image={wallpapper} onClick={ev => handleModal(ev.target)}>
             <CardBoxContainer main={false}>
@@ -60,6 +59,7 @@ const Characters: React.FC = (props: any) => {
                                 modalId === index
                                     ? <Modal
                                         show={modal}
+                                        type="characters"
                                         image={characterWalpapperImage}
                                         name={character.name}
                                         gender={character.gender}
