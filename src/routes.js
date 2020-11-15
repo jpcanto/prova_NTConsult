@@ -17,7 +17,6 @@ const Routes = () => {
     useEffect(() => {
         window.addEventListener("scroll", () => setScroll(window.scrollY));
     }, []);
-    console.log(scroll > 0 ? true : false)
     return <>
         <Router history={history} forceRefresh={true}>
             <Navbar image={starWarsLogo}
