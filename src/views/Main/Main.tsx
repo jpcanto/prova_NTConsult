@@ -19,7 +19,7 @@ const Main: React.FC = () => {
     <CardContainer paddingTop="20vh">
       <CardTitle fontSize="4.2">Who's watching Star-Wars-Flix?</CardTitle>
       <CardBoxContainer main={true}>
-        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+        <CardBox main={true} width="12vw" bShadow={true} onClick={handleClick}>
           <Card
             border="full"
             width="12vw"
@@ -29,7 +29,7 @@ const Main: React.FC = () => {
           </Card>
           <div className="title">Luke Skywalker</div>
         </CardBox>
-        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+        <CardBox main={true} width="12vw" bShadow={true} onClick={handleClick}>
           <Card
             border="full"
             width="12vw"
@@ -39,7 +39,7 @@ const Main: React.FC = () => {
           </Card>
           <div className="title">Anakin Skywalker</div>
         </CardBox>
-        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+        <CardBox main={true} width="12vw" bShadow={true} onClick={handleClick}>
           <Card
             border="full"
             width="12vw"
@@ -49,7 +49,7 @@ const Main: React.FC = () => {
           </Card>
           <div className="title">Leia Organa</div>
         </CardBox>
-        <CardBox width="12vw" bShadow={true} onClick={handleClick}>
+        <CardBox main={true} width="12vw" bShadow={true} onClick={handleClick}>
           <Card
             border="full"
             width="12vw"

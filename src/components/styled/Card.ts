@@ -51,9 +51,11 @@ export const CardBox = styled.div<ICard>`
     display: flex;
     flex-direction: column;
     margin: 2vh 1vw;
+    opacity: ${props => props.main ? 0.5 : 1};
     width: ${props => `${props.width}`};
 
     &:hover {
+        opacity: ${props => props.main ? 1 : 1};
         transform: ${props => !props.bShadow ? 'scale(1.2, 1.5)' : ''};
         transition: .2s ease-in;
     }
