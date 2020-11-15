@@ -2,36 +2,24 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import URL_API from '../../environment';
+import Modal from '../../components/modal/Modal';
+
 import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
-import default_image from '../../assets/img/thumb/character_default_image-2.jpg';
+
+import characterWalpapperImage from '../../assets/img/thumb/character_default_image.jpg';
+import characterImage from '../../assets/img/thumb/character_default_image-2.jpg';
 import likeIcon from '../../assets/img/thumb/like.png';
 import unlikeIcon from '../../assets/img/thumb/unlike.png';
 import infoIcon from '../../assets/img/thumb/info.png';
 import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
-import { IndexKind } from 'typescript';
 
-interface ICharacters {
-    birth_year: String,
-    created: String,
-    edited: String,
-    eye_color: String,
-    films: [],
-    gender: String,
-    hair_color: String,
-    height: String,
-    homeworld: String,
-    mass: String,
-    name: String,
-    skin_color: String,
-    species: [],
-    starships: [],
-    url: String,
-    vehicles: [],
-    showDescription: Boolean
-}
+import { IndexKind } from 'typescript';
+import { ICharacters } from './Characters.interface';
 
 const Characters: React.FC = (props: any) => {
     const [characters, setCharacters] = useState<ICharacters[]>([]);
+    const [modal, setModal] = useState<boolean>(false);
+    const [modalId, setModalId] = useState<number>();
 
     useEffect(() => {
         const url = URL_API.getCharacters;
@@ -57,20 +45,37 @@ const Characters: React.FC = (props: any) => {
         setCharacters(newChars);
     }
 
+    function handleModal(target: any) {
+        setModal(target.matches('.button') || target.matches('img') ? true : false);
+    }
+
+    console.log(characters)
     return <>
-        <CardWallpapper image={wallpapper}>
+        <CardWallpapper image={wallpapper} onClick={ev => handleModal(ev.target)}>
             <CardBoxContainer main={false}>
                 {
                     characters.map((character, index) => {
-                        return (
+                        return <div key={index}>
+                            {
+                                modalId === index
+                                    ? <Modal
+                                        show={modal}
+                                        image={characterWalpapperImage}
+                                        name={character.name}
+                                        gender={character.gender}
+                                        created={character.created}
+                                        films={character.films.length}
+                                        starships={character.starships.length}
+                                    />
+                                    : null
+                            }
                             <CardBox
                                 width="22vw"
-                                key={index}
                                 onMouseEnter={ev => handleHover(ev, index, true)}
                                 onMouseLeave={ev => handleHover(ev, index, false)}>
                                 <Card
                                     width="-webkit-fill-available"
-                                    image={default_image}
+                                    image={characterImage}
                                     border="top">
                                 </Card>
                                 {character.showDescription
@@ -83,7 +88,7 @@ const Characters: React.FC = (props: any) => {
                                             <div className="button">
                                                 <img src={unlikeIcon} />
                                             </div>
-                                            <div className="button">
+                                            <div className="button" onClick={ev => (setModalId(index), handleModal(ev.target))}>
                                                 <img src={infoIcon} />
                                             </div>
                                         </div>
@@ -100,7 +105,7 @@ const Characters: React.FC = (props: any) => {
                                     : ''
                                 }
                             </CardBox>
-                        )
+                        </div>
                     })
                 }
             </CardBoxContainer>

@@ -9,7 +9,7 @@ import obiwan from '../../assets/img/obiwan.png';
 
 const Main: React.FC = () => {
 
-  let history = useHistory();
+  const history = useHistory();
 
   function handleClick() {
     history.push('/films');

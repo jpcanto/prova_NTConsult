@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface cardProps {
+interface ICard {
     image?: string,
     fontSize?: string,
     paddingTop?: string,
@@ -11,7 +11,7 @@ interface cardProps {
     main?: boolean
 }
 
-export const CardWallpapper = styled.div<cardProps>`
+export const CardWallpapper = styled.div<ICard>`
     overflow: visible;
     background: ${props => `url(${props.image})`} no-repeat center;
     background-size: cover;
@@ -22,14 +22,14 @@ export const CardWallpapper = styled.div<cardProps>`
     width: -webkit-fill-available;
 `;
 
-export const CardContainer = styled.div<cardProps>`
+export const CardContainer = styled.div<ICard>`
     align-items: center;
     display: flex;
     flex-direction: column;
     padding-top: ${props => props.paddingTop};
 `;
 
-export const CardBoxContainer = styled.div<cardProps>`
+export const CardBoxContainer = styled.div<ICard>`
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -38,7 +38,7 @@ export const CardBoxContainer = styled.div<cardProps>`
     width: -webkit-fill-available;
 `;
 
-export const CardTitle = styled.h1<cardProps>`
+export const CardTitle = styled.h1<ICard>`
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: ${props => `${props.fontSize}em`};
@@ -46,7 +46,7 @@ export const CardTitle = styled.h1<cardProps>`
     margin-bottom: 5vh;
 `;
 
-export const CardBox = styled.div<cardProps>`
+export const CardBox = styled.div<ICard>`
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -59,7 +59,7 @@ export const CardBox = styled.div<cardProps>`
     }
 `;
 
-export const Card = styled.div<cardProps>`
+export const Card = styled.div<ICard>`
     background: ${props => `${props.bgColor ? props.bgColor : ''} url(${props.image})`} no-repeat center;
     background-size: cover;
     border-radius: ${props => props.border === 'full' ? '5px' : '0'};
@@ -87,7 +87,7 @@ export const Card = styled.div<cardProps>`
     }
 `;
 
-export const CardDescription = styled.div<cardProps>`
+export const CardDescription = styled.div<ICard>`
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: .7em;
