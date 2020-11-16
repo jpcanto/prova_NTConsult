@@ -21,7 +21,7 @@ const Modal: React.FC<IModal> = (
     return <>
         {
             showModal
-                ? <ModalFade>
+                ? <ModalFade className="modal-fade">
                     <ModalContainer>
                         <ModalWalppaper image={image} />
                         <ModalDescription>

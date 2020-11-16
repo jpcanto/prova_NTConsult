@@ -47,7 +47,11 @@ const Characters: React.FC = () => {
     }
 
     function handleModal(target: any) {
-        setModal(target.matches('.button') || target.matches('img') ? true : false);
+        setModal(target.matches('.button') || target.matches('img')
+            ? true
+            : target.matches('.modal-fade')
+                ? false
+                : true);
     }
 
     return <>
