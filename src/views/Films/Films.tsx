@@ -49,8 +49,6 @@ const Characters: React.FC = (props: any) => {
     setModal(target.matches('.button') || target.matches('img') ? true : false);
   }
 
-  console.log(films);
-
   return <>
     <CardWallpapper image={wallpapper} onClick={ev => handleModal(ev.target)}>
       <CardBoxContainer main={false}>
