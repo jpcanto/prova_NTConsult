@@ -15,7 +15,6 @@ import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
 
 import { IndexKind } from 'typescript';
 import { ICharacters } from './Characters.interface';
-import { TargetElement } from '@testing-library/user-event';
 
 const Characters: React.FC = () => {
     const [characters, setCharacters] = useState<ICharacters[]>([]);
