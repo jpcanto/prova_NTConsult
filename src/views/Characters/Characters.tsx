@@ -15,8 +15,9 @@ import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
 
 import { IndexKind } from 'typescript';
 import { ICharacters } from './Characters.interface';
+import { TargetElement } from '@testing-library/user-event';
 
-const Characters: React.FC = (props: any) => {
+const Characters: React.FC = () => {
     const [characters, setCharacters] = useState<ICharacters[]>([]);
     const [modal, setModal] = useState<boolean>(false);
     const [modalId, setModalId] = useState<number>();

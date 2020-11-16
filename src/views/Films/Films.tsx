@@ -16,7 +16,7 @@ import wallpapper from '../../assets/img/thumb/wallpapper.jpg';
 import { IndexKind } from 'typescript';
 import { IFilms } from './Films.interface';
 
-const Films: React.FC = (props: any) => {
+const Films: React.FC = () => {
   const [films, setFilms] = useState<IFilms[]>([]);
   const [modal, setModal] = useState<boolean>(false);
   const [modalId, setModalId] = useState<number>();
