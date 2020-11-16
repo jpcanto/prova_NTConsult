@@ -5,7 +5,7 @@ import { Navbar } from './components/styled/Navbar/Navbar';
 import Main from './views/Main/Main';
 import Characters from './views/Characters/Characters.tsx';
 import Films from './views/Films/Films.tsx';
-import NotFound from './views/NotFound.tsx';
+import NotFound from './views/NotFound/NotFound.tsx';
 import history from './history';
 
 import starWarsLogo from './assets/img/Star_Wars_logo.png';
