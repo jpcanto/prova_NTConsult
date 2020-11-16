@@ -4,7 +4,7 @@ import axios from 'axios';
 import URL_API from '../../environment';
 import Modal from '../../components/modal/Modal';
 
-import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
+import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card/Card';
 
 import characterWalpapperImage from '../../assets/img/thumb/character_default_image.jpg';
 import characterImage from '../../assets/img/thumb/character_default_image-2.jpg';
@@ -29,7 +29,7 @@ const Characters: React.FC = () => {
                 const { data } = await axios.get(url);
                 setCharacters(data.results);
             } catch (error) {
-                console.log('erro na requisição: ', url);
+                alert(`Something happens, contact desenv and tell us about that: Error (${error})`);
             }
         }
         getCharacters();

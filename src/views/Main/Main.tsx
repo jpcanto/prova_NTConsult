@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, CardBox, CardBoxContainer, CardContainer, CardTitle } from '../../components/styled/Card';
+import { Card, CardBox, CardBoxContainer, CardContainer, CardTitle } from '../../components/styled/Card/Card';
 import { useHistory } from "react-router-dom";
 import anakin from '../../assets/img/anakin.png';
 import leia from '../../assets/img/leia.png';

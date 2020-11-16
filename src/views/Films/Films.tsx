@@ -4,7 +4,7 @@ import axios from 'axios';
 import URL_API from '../../environment';
 import Modal from '../../components/modal/Modal';
 
-import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card';
+import { Card, CardBox, CardBoxContainer, CardDescription, CardWallpapper } from '../../components/styled/Card/Card';
 
 import filmWallpapperImage from '../../assets/img/thumb/film_default_image.jpg';
 import characterImage from '../../assets/img/thumb/film_default_image-2.jpg';
@@ -28,7 +28,7 @@ const Films: React.FC = () => {
         const { data } = await axios.get(url);
         setFilms(data.results);
       } catch (error) {
-        console.log('erro na requisição: ', url, ' Error: ', error);
+        alert(`Something happens, contact desenv and tell us about that: Error (${error})`);
       }
     }
     getFilms();

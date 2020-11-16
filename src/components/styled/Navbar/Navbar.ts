@@ -1,11 +1,7 @@
 import styled from 'styled-components';
+import { INavbar } from './Navbar.interface';
 
-interface NavbarProps {
-    image: String,
-    scrolled: Boolean
-}
-
-export const Navbar = styled.nav<NavbarProps>`
+export const Navbar = styled.nav<INavbar>`
     font-family: sans-serif;
     align-items: center;
     background: ${props => props.scrolled
