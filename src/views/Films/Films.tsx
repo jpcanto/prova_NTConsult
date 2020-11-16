@@ -50,8 +50,8 @@ const Films: React.FC = (props: any) => {
   }
 
   return <>
-    <CardWallpapper image={wallpapper} onClick={ev => handleModal(ev.target)}>
-      <CardBoxContainer main={false}>
+    <CardWallpapper role="films" image={wallpapper} onClick={ev => handleModal(ev.target)}>
+      <CardBoxContainer main={false} role="cardBox">
         {
           films.map((film, index) => {
             return <div key={index}>
@@ -69,7 +69,7 @@ const Films: React.FC = (props: any) => {
                   />
                   : null
               }
-              <CardBox
+              <CardBox 
                 width="22vw"
                 onMouseEnter={ev => handleHover(ev, index, true)}
                 onMouseLeave={ev => handleHover(ev, index, false)}>
@@ -88,7 +88,11 @@ const Films: React.FC = (props: any) => {
                       <div className="button">
                         <img src={unlikeIcon} />
                       </div>
-                      <div className="button" onClick={ev => (setModalId(index), handleModal(ev.target))}>
+                      <div
+                        data-testid="action-button"
+                        className="button"
+                        onClick={ev => (setModalId(index), handleModal(ev.target))}
+                      >
                         <img src={infoIcon} />
                       </div>
                     </div>

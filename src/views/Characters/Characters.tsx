@@ -50,7 +50,7 @@ const Characters: React.FC = (props: any) => {
     }
 
     return <>
-        <CardWallpapper image={wallpapper} onClick={ev => handleModal(ev.target)}>
+        <CardWallpapper role="characters" image={wallpapper} onClick={ev => handleModal(ev.target)}>
             <CardBoxContainer main={false}>
                 {
                     characters.map((character, index) => {
