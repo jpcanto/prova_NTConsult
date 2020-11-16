@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Router, Switch, Link, Route } from 'react-router-dom';
-import { Navbar } from './components/styled/Navbar';
+import { Router, Switch, Link, Route, Redirect } from 'react-router-dom';
+import { Navbar } from './components/styled/Navbar/Navbar';
 
 import Main from './views/Main/Main';
 import Characters from './views/Characters/Characters.tsx';
 import Films from './views/Films/Films.tsx';
+import NotFound from './views/NotFound.tsx';
 import history from './history';
 
 import starWarsLogo from './assets/img/Star_Wars_logo.png';
@@ -26,9 +27,11 @@ const Routes = () => {
                 <Link to="/characters" className={!scroll > 0 ? 'scrolled' : ''}>Characters</Link>
             </Navbar>
             <Switch>
-                <Route exact path='/' render={() => <Main requestType="main" />} />
-                <Route exact path='/films' render={() => <Films requestType="films" />} />
-                <Route exact path='/characters' render={() => <Characters requestType="characters" />} />
+                <Route exact path='/' render={() => <Main />} />
+                <Route exact path='/films' render={() => <Films />} />
+                <Route exact path='/characters' render={() => <Characters />} />
+                <Route path='/404' render={() => <NotFound />} />
+                <Redirect to="/404" />
             </Switch>
         </Router>
     </>
