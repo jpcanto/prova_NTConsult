@@ -21,7 +21,7 @@ export const ModalContainer = styled.div`
     box-shadow: 1px 2px 8px 2px #1e1e1e;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 95vh;
     position: absolute;
     top: 5vh;
     width: 40%;
@@ -98,6 +98,23 @@ export const ModalDescription = styled.div<IModalStyled>`
                 cursor: pointer;
                 transform: scale(1.1);
                 transition: .2s ease-in;
+            }
+        }
+    }
+
+
+    @media (max-width: 768px) {
+        width: -webkit-fill-available !important;
+        
+        .flex {
+            flex-direction: column;
+
+            p:last-child:not(:only-child) {
+                margin: 20px 0 !important;
+            }
+
+            span {
+                display: inline-block;
             }
         }
     }

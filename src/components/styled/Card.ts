@@ -59,6 +59,10 @@ export const CardBox = styled.div<ICard>`
         transform: ${props => !props.bShadow ? 'scale(1.2, 1.5)' : ''};
         transition: .2s ease-in;
     }
+
+    @media (max-width: 768px) {
+        width: 40vw;
+    }
 `;
 
 export const Card = styled.div<ICard>`
@@ -86,6 +90,10 @@ export const Card = styled.div<ICard>`
       font-size: 1.2em;
 
       margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+        width: 40vw;
     }
 `;
 
@@ -141,6 +149,8 @@ export const CardDescription = styled.div<ICard>`
     }
 
     .area-info {
+        flex-wrap: wrap;
+
         .info {
             &:first-child {
                 color: #29d429;
@@ -159,8 +169,10 @@ export const CardDescription = styled.div<ICard>`
     }
 
     .area-tags {
-        display: flex;
         align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        
         .tag:not(:first-child)::before {
             background: #4d4d4d;
             border-radius: 2px;
